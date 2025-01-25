@@ -39,7 +39,7 @@
 \renewcommand{\contentsname}{\begin{center} INDEX \end{center}}
 
 % Format of subsection and subsubsection
-\titleformat{\section}{\bfseries\centering\Large}{\thesection}{1em}{}
+\titleformat{\section}{\bfseries\raggedright\Large}{\thesection}{1em}{}
 \titleformat{\subsection}{\bfseries\raggedright}{\thesubsection}{1em}{}{}
 \titleformat{\subsubsection}{\bfseries}{\hspace*{2em}\thesubsubsection}{1em}{}{}
 
@@ -92,9 +92,11 @@ Hello Summary!
 		This data-driven analysis not only helps countries improve their cybersecurity policies
 		but also provides valuable insights for global cybersecurity cooperation.
 	\subsection{Restatement of the problem}\label{subsec:restatement-of-the-problem} %1.2
-		We are required to identify patterns that can inform the data-driven development and refinement of national cybersecurity policies and laws,
+		We are required to identify patterns
+		that can inform the data-driven development and refinement of national cybersecurity policies and laws,
 		which focused on those that have demonstrated effectiveness.
-		Our goal is to develop a theory explaining what constitutes a strong national cybersecurity policy and then support it with a data-driven analysis.
+		Our goal is to develop a theory explaining what constitutes a strong national cybersecurity policy and then
+		support it with a data-driven analysis.
 
 		Several key aspects are listed below:
 		\begin{itemize}
@@ -106,20 +108,26 @@ Hello Summary!
 		We have divided each problem into several different steps:
 		\subsubsection[]{Cybercrime distribution across the world} %1.3.1
 			\begin{itemize}
-				\item Analyze the JSON files published on VCDB .
+				\item Process the JSON files published on VCDB .
 				\item Use GCI as the primary indicator to assess countries with disproportionately high levels of cybercrime.
 				\item Group countries based on GCI Tier measure, and
 					visually represent the distribution of cybercrime in each group using heatmaps.
 			\end{itemize}
 		\subsubsection[]{Effective policy or law analytical approach} %1.3.2
 			\begin{itemize}
-				\item TODO % TODO: fill the blank
+				\item Identify a representative country from each of the T1 to T5 national clusters and
+					collect cybersecurity-related policies enacted by these countries.
+				\item Plot time-series line graphs depicting the trends of cybercrime over time and
+					analyze which policies have been effective in curbing criminal activities.
+				\item Conduct a targeted analysis of specific policy models' effectiveness in certain countries,
+					focusing on particular indicators.
+				\item Integrate temporal factors and national contexts to comprehensively evaluate the impact of policies.
 			\end{itemize}
 		\subsubsection[]{National demographics correlation} %1.3.3
 			\begin{itemize}
-				\item TODO % TODO: fill the blank
+				\item TODO % TODO: fill the blank 1.3.3
 			\end{itemize}
-	
+
 \section{Symbol and Assumptions}\label{sec:symbol-and-assumptions} %2
 	\subsection{Symbol Description}\label{subsec:symbol-description} %2.1
 		\begin{tabular}{ll}
@@ -139,11 +147,11 @@ Hello Summary!
 		\begin{tabular}{ll}
 			\textbf{Abbreviation} & \textbf{Full Form} \\
 			\hline
-			GCI   & Global Cybersecurity Index \\
+			GCI   & Global Cybersecurity Index\cite{gci-2024} \\
 			\hline
-			VERIS & the Vocabulary for Event Recording and Incident Sharing \\
+			VERIS & the Vocabulary for Event Recording and Incident Sharing\cite{veris} \\
 			\hline
-			VCDB  & the VERIS Community Database \\
+			VCDB  & the VERIS Community Database\cite{vcdb} \\
 			\hline
 		\end{tabular}
 	\subsection{Assumption}\label{subsec:assumption} %2.2
@@ -172,9 +180,10 @@ Hello Summary!
 
 \section{Advantages \& Disadvantages}\label{sec:advantages-&-disadvantages} %7
 
-\section{References}\label{sec:references} %8
+\bibliographystyle{plain}
+\bibliography{references} %8
 
-\section{Appendix}\label{sec:appendix} %9
+\section*{Appendix}\label{sec:appendix} %9
 
 
 \end{document}
