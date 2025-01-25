@@ -95,24 +95,24 @@ def save_successful_countries(countries_count, output_file):
     将成功攻击的国家及其次数保存到 Excel 文件中。
     """
     if not countries_count:
-        print(f"No successful attacks found. {output_file} not created.")
+        print(f"No confirmed attacks found. {output_file} not created.")
         return
     # 构建包含国家代码、国家全名和成功攻击次数的列表
     data = []
     for code, count in countries_count.items():
         name = get_full_country_name(code)
-        data.append({'Country': name, 'Successful Attacks': count})
+        data.append({'Country': name, 'Confirmed Attacks': count})
     df = pd.DataFrame(data)
-    df = df.sort_values('Successful Attacks', ascending=False)
+    df = df.sort_values('Confirmed Attacks', ascending=False)
     df.to_excel(output_file, index=False, engine='openpyxl')
-    print(f"Successful countries saved: {output_file}")
+    print(f"Confirmed countries saved: {output_file}")
 
 def main():
     """
     主函数，定义 JSON 文件目录和输出 Excel 文件路径，并执行数据处理和保存。
     """
     json_directory = "./data/json"  # 指定包含 JSON 文件的目录
-    successful_stats_excel = "./result/excel/successful_countries.xlsx"  # 输出 Excel 文件路径
+    successful_stats_excel = "./result/excel/confirmed_countries.xlsx"  # 输出 Excel 文件路径
 
     # 确保输出目录存在
     os.makedirs(os.path.dirname(successful_stats_excel), exist_ok=True)
