@@ -23,7 +23,7 @@ but also allows for fitting the data against policy and population variables to 
 		\caption{Crime distribution}\label{fig:crime-distribution}
 	\end{figure}
 \subsection{High-prevalence regions}\label{subsec:high-prevalence-regions} %3.2
-	We obtained population data $P_i$ for various countries over recent decades from the World Bank Group's website.
+	We obtained population data $P_i$ for various countries over recent decades from the World Bank Group's website\cite{population}.
 	Simultaneously, we processed data from the VCDB to tabulate the annual number of cybercrime incidents $D_i$ for each country from 2000 to 2025.
 	However, due to discrepancies in the specific countries reported by the World Bank Group and those listed in the VCDB,
 	we had to exclude certain countries to ensure that only those appearing in both datasets were retained.
@@ -74,13 +74,13 @@ but also allows for fitting the data against policy and population variables to 
 	\begin{figure}[htbp]
 		\centering
 		\subfloat[Successful Cybercrime Incidents]{
-			\includegraphics[width=1\linewidth]{./rsrc/Crime_Successful_distribution}
+			\includegraphics[width=0.8\linewidth]{./rsrc/Crime_Successful_distribution}
 		}\\
 		\subfloat[Mitigated Cybercrime Attempts]{
-			\includegraphics[width=0.45\linewidth]{./rsrc/Crime_NearMiss_distribution}
+			\includegraphics[width=0.4\linewidth]{./rsrc/Crime_NearMiss_distribution}
 		}\hfill
 		\subfloat[Reported Cybercrime Incidents]{
-			\includegraphics[width=0.45\linewidth]{./rsrc/Crime_Suspected_distribution}
+			\includegraphics[width=0.4\linewidth]{./rsrc/Crime_Suspected_distribution}
 		}\\
 		\caption{Other Cybercrime Incidents}\label{fig:other-cybercrime-incidents}
 	\end{figure}
@@ -138,6 +138,3 @@ but also allows for fitting the data against policy and population variables to 
 			However, the sharp decline in T5 countries' cybercrime records remains puzzling and could be attributed to underreporting.
 			Further research is needed to explore these potential explanations.
 	\end{itemize}
-% 美国遥遥领先
-% 大部分不具有防御能力
-% T1和T5多，T234少
