@@ -15,7 +15,7 @@
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{newtxmath}
 \usepackage[pdftex]{graphicx}
-\usepackage{subfigure}
+\usepackage{subfig}
 \usepackage{xcolor}
 \usepackage{fancyhdr}
 \usepackage{enumitem}
@@ -86,7 +86,6 @@ Hello Summary!
 		aimed at enhancing their defensive capabilities through legal, technical, and organizational cooperation.
 		The \textbf{effectiveness} of these policies varies significantly across nations, and these differences may be closely related to factors
 		such as policy design, enforcement, technological infrastructure, education levels, economic development, and internet penetration rates.
-
 		In this context, understanding which factors make certain countries' cybersecurity policies more effective has become a critical issue.
 		By analyzing the global distribution of cybercrime, national cybersecurity policies, and their outcomes,
 		we can identify which policies and laws are particularly effective in preventing, prosecuting, and mitigating cybercrime.
@@ -107,10 +106,10 @@ Hello Summary!
 		We have divided each problem into several different steps:
 		\subsubsection[]{Cybercrime distribution across the world} %1.3.1
 			\begin{itemize}
-				\item Analyze the JSON files published on VCDB (the VERIS community database).
-				\item Use the Global Cybersecurity Index (GCI) as the primary indicator to assess countries with disproportionately high levels of cybercrime.
-				\item Group countries based on their implementation of similar policies over a period of time, and
-					visually represent the distribution of cybercrime in each group using a 3D heatmap.
+				\item Analyze the JSON files published on VCDB .
+				\item Use GCI as the primary indicator to assess countries with disproportionately high levels of cybercrime.
+				\item Group countries based on GCI Tier measure, and
+					visually represent the distribution of cybercrime in each group using heatmaps.
 			\end{itemize}
 		\subsubsection[]{Effective policy or law analytical approach} %1.3.2
 			\begin{itemize}
@@ -126,9 +125,11 @@ Hello Summary!
 		\begin{tabular}{ll}
 			\textbf{Symbol} & \textbf{Description} \\
 			\hline
-			$D_i$ & Each data of the cybercrime distribution \\
+			$D_i$ & Cybercrime distribution in each country \\
 			\hline
-			$y$   & Transformed value using \( y = \log(1 + D_i) \). \\
+			$P_i$ & Population of each country \\
+			\hline
+			$y$   & Transformed value using \( y = \log(1 + x) \). \\
 			\hline
 		\end{tabular}
 
@@ -147,7 +148,7 @@ Hello Summary!
 		\end{tabular}
 	\subsection{Assumption}\label{subsec:assumption} %2.2
 		\begin{itemize}
-			\item Countries with a population below \( "TODO" \) are excluded from the consideration of cybercrime distribution because
+			\item Countries with a population below 5\% are excluded from the consideration of cybercrime distribution because
 				a small change of number could bring a significant difference to statistical analysis.
 			\item In the statistical analysis of the global distribution of cybercrime,
 				factors such as national population growth, internet access, wealth levels, and education levels
@@ -158,8 +159,8 @@ Hello Summary!
 				aiming to isolate the distribution patterns of cybercrime from other potential influencing factors.
 		\end{itemize}
 
-\section{The establishment and solution of problem 1 model}\label{sec:the-establishment-and-solution-of-problem-1-model}
-\input{the-establishment-and-solution-of-problem-1-model}
+\section{A Data-Driven Model for Global Cybercrime Hotspot Mapping}\label{sec:a-data-driven-model-for-global-cybercrime-hotspot-mapping}
+\input{a-data-driven-model-for-global-cybercrime-hotspot-mapping}
 
 \section{The establishment and solution of problem 2 model}\label{sec:the-establishment-and-solution-of-problem-2-model} %4
 	\subsection{Shit, bro*2}\label{subsec:shit-bro*2} %4.1
