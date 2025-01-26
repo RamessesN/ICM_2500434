@@ -23,17 +23,19 @@ By focusing on these representative countries,
 we aim to draw meaningful insights into the effectiveness of various cybersecurity policies and laws,
 which can then be generalized to other countries within the same cluster.
 
+\subsubsection*{Implementation Steps} %4.1.1
 To identify the representative country for each cluster,
-we first calculate the average Global Cybersecurity Index (GCI) for each cluster.
+we first calculate the average GCI for each cluster.
 The average GCI, denoted as \(\overline{GCI}\), is computed as follows:
 \[ \overline{GCI} = \frac{\sum_{i=1}^{n} GCI_i}{n} \]
 where \(n\) is the number of countries in the cluster.
 Next, we compute the absolute deviation of each country's GCI from the cluster average:
-\[|GCI_i - \overline{GCI}|\] .
+\[ \{ a|a= |GCI_i - \overline{GCI}| \} \]
+where \(a\) is the approach to the average \( \overline{GCI} \).
 The country with the smallest deviation is considered the most representative of its cluster.
 After this initial selection, we further filter out countries with insufficient or incomplete legal and policy documentation.
 
-Through this process, we identify the following representative countries for each cluster:
+Through this process, we identify the following representative countries for each cluster with their references:
 \begin{itemize}
     \item \textbf{T1: United States}
     ~\cite{
@@ -75,3 +77,46 @@ Through this process, we identify the following representative countries for eac
         namibia-digital-odyssey,
         namibia-cybersecurity-strategy}
 \end{itemize}
+
+\subsubsection*{Visualizing Policy Impact Over Time} %4.1.2
+With the selected representative countries,
+we proceed to visualize the impact of cybersecurity policies on cybercrime trends.
+For each country, we plot a line graph where
+the x-axis represents time (from 2000 to 2023) and the y-axis represents the annual number of cybercrime incidents.
+To highlight the influence of policy implementations,
+we mark the data points corresponding to years in which cybersecurity policies or laws were enacted with an orange color.
+This visualization is presented in Figure\ref{fig:representative-policy}.
+
+This allows us to preliminarily assess the effectiveness of the policies.
+Specifically:
+\begin{itemize}
+    \item A downward trend in the line graph following the implementation of a policy (marked in orange)
+    suggests that the policy may have been effective in reducing cybercrime.
+    \item An upward or unchanged trend, on the other hand,
+    may indicate that the policy was ineffective or had unintended consequences.
+\end{itemize}
+
+This initial analysis provides a broad overview of the impact of various policies and
+helps identify patterns that warrant further investigation.
+It also serves as a foundation for more detailed analysis of specific policies, guiding future research directions.
+
+\begin{figure}[htbp]
+    \centering
+    \subfloat[US (T1)]{
+        \includegraphics[width=0.45\linewidth]{../rsrc/(T1)US_policy}
+    }\hfill
+    \subfloat[Japan (T2)]{
+        \includegraphics[width=0.45\linewidth]{../rsrc/(T2)Japan_policy}
+    }\\
+    \subfloat[China (T3)]{
+        \includegraphics[width=0.3\linewidth]{../rsrc/(T3)China_policy}
+    }\hfill
+    \subfloat[Costa Rica (T4)]{
+        \includegraphics[width=0.3\linewidth]{../rsrc/(T4)Costa_Rica_policy}
+    }\hfill
+    \subfloat[Namibia (T5)]{
+        \includegraphics[width=0.3\linewidth]{../rsrc/(T5)Namibia_policy}
+    }\\
+    \caption{Representative countries}\label{fig:representative-policy}
+\end{figure}
+
