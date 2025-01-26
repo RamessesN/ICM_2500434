@@ -1,0 +1,40 @@
+%! Author = Yilin
+%! Date = 2025/1/27
+
+\subsection{As for the 1^{st} Question} %7.1
+    By filtering the data and drawing the global heat map of cybercrime distribution,
+    the global distribution of cybercrime can be visualized.
+    Then, by filtering the data according to specific indicators
+    (Confirmed, Near miss, Reported, Prosecuted)
+    and drawing the corresponding global heat map,
+    the distribution of these indicators can be visualized.
+
+    Pure data screening and analysis need to be based on a huge amount of data.
+    For these big countries in Europe and the United States, the annual amount of data is very considerable,
+    so the effect is very prominent.
+    But for some small countries in Africa or Asia,
+    the difference in the distribution map of cybercrime is not very obvious because of the insufficient amount of data.
+
+\subsection{As for the 2^{nd} Question} %7.2
+    \begin{enumerate}
+        \item Through processing the filtered data and drawing a line chart,
+            it can be more intuitive to see which laws and policies have benefits for the national cybercrime rate control;
+            However, the timeliness of legal policies cannot be rationally judged, that is,
+            whether the law has an impact on the future cannot be directly considered.
+        \item Introduction of Poisson model: Because the number of cybercrimes is a typical non-negative integer data,
+            Poisson regression analysis can avoid the continuity assumption of ordinary linear regression,
+            and can model and explain the nonlinear association between the number of bills and the crime rate and zero inflation data.
+            Furthermore, the regression coefficients can be used for policy evaluation by calculating the incidence ratio $IRR$ .
+            Over-discretization of the data can lead to bias in the model,
+            and the model will only work for relationships that are roughly linear,
+            and it will be less useful if the actual relationship is more complex (e.g., if there are interaction effects).
+        \item Introduction of time hysteresis effect:
+            The introduction of time lag effect can reflect the delay of the policy coming into effect, that is,
+            the release of legal policies does not necessarily produce benefits at the time but will have potential impacts on the future.
+            Then, the optimal lag period was selected by cross validation,
+            and the key time node for the policy to be effective was clarified.
+            But it ignores the immediate effect on the law.
+    \end{enumerate}
+    Therefore, it is necessary to combine the data analysis and Poisson \& time lag effect model
+    to obtain the income effect of legal policies on the national Internet crime rate.
+
