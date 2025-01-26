@@ -177,7 +177,7 @@ we aim to provide actionable insights for the development and refinement of cybe
     These countries provide a robust dataset for examining trends in cybercrime success rates and reporting rates,
     allowing us to draw meaningful insights into the effectiveness of cybersecurity policies and practices in these regions.
 
-    \subsubsection*{Impact on Cyberattack Success Rates}
+    \subsubsection*{Impact on Cyberattack Success Rates} %4.4.1
         The line graphs depicting the crime success rate over time for the United States and Canada are shown in Figure
         ~\ref{fig:mitigated-attempts}.
         The figure illustrates that the establishment of the \testbf{National Cyber Security Centre (NCSC) Establishment 2016}
@@ -206,7 +206,7 @@ we aim to provide actionable insights for the development and refinement of cybe
             \caption{Mitigated Attempts}\label{fig:mitigated-attempts}
         \end{figure}
 
-    \subsubsection*{Analysis of Cybercrime Reporting Rate}
+    \subsubsection*{Analysis of Cybercrime Reporting Rate} %4.4.2
         In terms of cybercrime reporting rates, the available data for analysis is limited.
         Taking the United States and the United Kingdom as examples, we plot the reporting rate over time in Figure
         ~\ref{fig:reported-attempts}.
@@ -233,3 +233,119 @@ we aim to provide actionable insights for the development and refinement of cybe
             }\\
             \caption{Reported Attempts}\label{fig:reported-attempts}
         \end{figure}
+
+\subsection{A Poisson Regression Model with Time Leg effect}\label{subsec:a-poisson-regression-model-with-time-leg-effect} %4.5
+    From the above data,
+    we can intuitively find the benefits of legal policies on cybercrime governance in different countries from 2000 to 2023.
+    Based on this, we need to consider the timeliness of the law, that is,
+    a certain law may have little benefit for the cybercrime control in the current year,
+    but it will be effective for the network control in the next few years.
+    Therefore, we do this by using a Poisson regression model and introducing a time lag effect.
+    The model is described as:
+    \[ \log(\mathbf{E}[Crime_t]) = \beta_0 + \sum_{k=1}^{K} \beta_k Bill_{t-k} \]
+    where \(\mathbf{E}\) is the expected crime number in the year \(t\),
+    \(\beta_0\) is the natural logarithm of the baseline crime rate when all explanatory variables are zero,
+    \(\beta_1, \beta_2, \beta_3\) represent the marginal impact of bills on the crime rate (on a logarithmic scale)
+    in the first, second, and third year after passage respectively,
+    \(Bill_{t-k}\) is the number of bills passed in year \(t-k\) (\(k\) = 1,2,3), and
+    \(K\) is the greatest lagged number.
+
+    The reason why the linear regression model is not used is that the obtained \(R2\) value is very low,
+    indicating that the relationship between the time of bill issuance and the crime rate is not obvious.
+    The time lag effect is to get the effect that a bill issued in a given year is likely to have in a lagged number of years.
+
+    Because the Poisson regression analysis also needs to be based on a certain amount of data to ensure the accuracy of the conclusion,
+    we choose a few countries that have suffered a large number of cyberattacks for analysis.
+    Included: United States, United Kingdom, Canada, Japan, Costa Rica as Figure~\ref{fig:the-poisson-regression} shows.
+    \begin{figure}[htbp]
+        \centering
+        \subfloat[United States]{
+            \includegraphics[width=0.45\linewidth]{../rsrc/policy_time/US_Analysis}
+        }\hfill
+        \subfloat[United Kingdom]{
+            \includegraphics[width=0.45\linewidth]{../rsrc/policy_time/UK_Analysis}
+        }\\
+        \subfloat[Canada]{
+            \includegraphics[width=0.3\linewidth]{../rsrc/policy_time/Canada_Analysis}
+        }\hfill
+        \subfloat[Japan]{
+            \includegraphics[width=0.3\linewidth]{../rsrc/policy_time/Japan_Analysis}
+        }\hfill
+        \subfloat[Costa Rica]{
+            \includegraphics[width=0.3\linewidth]{../rsrc/policy_time/Costa Rica_Analysis}
+        }\\
+        \caption{the Poisson regression}\label{fig:the-poisson-regression}
+    \end{figure}
+
+    Based on these, conclusions are as follows:
+    \subsubsection*{Canada}
+        The model fits very well,
+        indicating that the bill had a significant impact on cybercrime 3 tears after its passage.
+        Canada's crime data are less volatile and
+        may reflect effective enforcement of its cybersecurity policies or lower crime rates per capita.
+        Low bias values indicate a clear relationship between the number of bills and crime rates.
+        \begin{itemize}
+            \item Best lag period: 3 years.
+            \item Poisson bias: 2.5 (very low).
+            Actual crime trends: low number of crimes (peak around 10).
+        \end{itemize}
+    \subsubsection*{Costa Rica}
+        The model is a fair fit, with higher bias than Canada but lower bias than the United States.
+        It may indicate that the long-term effects of the Act are present,
+        but the data fluctuates greatly or is interfered by other factors
+        (e.g., economic conditions, technological developments).
+        \begin{itemize}
+            \item Best lag period: 3 years.
+            \item Poisson bias: 14.7 (medium).
+            \item Actual crime trends: moderate number of crimes (peak around 60).
+        \end{itemize}
+    \subsubsection*{Japan}
+        The bias value is extremely low, but the actual crime number is almost zero,
+        possibly reflecting incomplete data recording or indeed rare cybercrime in Japan.
+        Although the model fits well, 
+        the significance of policy analysis is limited, and the accuracy of data needs to be verified.
+        \begin{itemize}
+            \item Best lag period: 3 years.
+            \item Poisson bias: 0.6 (very low).
+            \item Actual crime trends: very low number of crimes (peak around 1).
+        \end{itemize}
+    \subsubsection*{United Kingdom}
+        UK has a poor model fit, indicating a weak relationship between bills and crime rates.
+        \begin{itemize}
+            \item Best lag period: 3 years.
+            \item Poisson bias: 31.3 (high).
+            \item Actual crime trends: Numbers not explicitly shown.
+        \end{itemize}
+        Possible reasons include:
+        \begin{itemize}
+            \item Crime data influenced by multiple factors (e.g., transnational cyberattacks).
+            \item Delayed or limited implementation of the bill.
+        \end{itemize}
+    \subsubsection*{United States}
+        US is a very poor fit,
+        indicating that the current model does not explain the relationship between bills and crime rates.
+        \begin{itemize}
+            \item Best lag period: 3 years.
+            \item Poisson bias: 280.1 (very high).
+            \item Actual crime trends: High number of crimes (e.g.\ 562 in 2010).
+        \end{itemize}
+        The main reasons may include:
+        \begin{itemize}
+            \item Outlier impact: spike in 2010.
+            \item Data complexity: US cybercrime may involve more dynamic factors
+                (e.g., technological advances, scale of hacking).
+            \item Policy limitations: Increasing the number of laws alone will not necessarily curb high crime rates.
+                A combination of law enforcement and technology is needed.
+        \end{itemize}
+
+        Therefore, we can know that the effect of each law on the average of the above countries
+        can affect the Internet crime rate in the next 3 years.
+        Among them, Canada has the highest revenue from cybercrime governance;
+        The results of Japan show that laws and policies are good for the proceeds of cybercrime;
+        Due to the limited amount of data,
+        Costa Rica can only preliminarily determine that the legal policy has a good effect on its cybercrime control.
+        The United Kingdom's laws are less favourable to the proceeds of cybercrime;
+        The United States has the worst legal policies for cybercrime.
+        In many cases, the release of laws does not directly lead to a decrease in crime rates.
+
+
