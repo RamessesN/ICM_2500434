@@ -7,120 +7,115 @@ cybercrime incidents, the success rate of prosecutions, and the overall resilien
 Through this data-driven approach,
 we aim to provide actionable insights for the development and refinement of cybersecurity policies.
 \subsection{Selection of Representative Centroid Countries}\label{subsec:selection-of-representative centroid-countries} %4.1
-Having constructed a clustering model to categorize countries into five clusters (T1 to T5) based on GCI and other relevant metrics,
-we now proceed to analyze the effectiveness of cybersecurity policies within each cluster.
-To ensure a representative and data-driven analysis,
-we will select one central country from each cluster that meets the following criteria:
-\begin{itemize}
-    \item \textbf{Representativeness:}
-    The selected country should typify the overall characteristics of its cluster,
-    reflecting the general trends and patterns observed within that group.
-    \item \textbf{Data Availability:}
-    The country must have sufficient historical data on cybersecurity policies and legislation enacted over the past two decades,
-    allowing for a comprehensive analysis of policy impacts.
-\end{itemize}
-By focusing on these representative countries,
-we aim to draw meaningful insights into the effectiveness of various cybersecurity policies and laws,
-which can then be generalized to other countries within the same cluster.
-
-\subsubsection*{Implementation Steps} %4.1.1
-    To identify the representative country for each cluster,
-    we first calculate the average GCI for each cluster.
-    The average GCI, denoted as \(\overline{GCI}\), is computed as follows:
-    \[ \overline{GCI} = \frac{\sum_{i=1}^{n} GCI_i}{n} \]
-    where \(n\) is the number of countries in the cluster.
-    Next, we compute the absolute deviation of each country's GCI from the cluster average:
-    \[ \{ a|a= |GCI_i - \overline{GCI}| \} \]
-    where \(a\) is the approach to the average \( \overline{GCI} \).
-    The country with the smallest deviation is considered the most representative of its cluster.
-    After this initial selection, we further filter out countries with insufficient or incomplete legal and policy documentation.
-
-    Through this process, we identify the following representative countries for each cluster with their references:
+    Having constructed a clustering model to categorize countries into five clusters (T1 to T5) based on GCI and other relevant metrics,
+    we now proceed to analyze the effectiveness of cybersecurity policies within each cluster.
+    To ensure a representative and data-driven analysis,
+    we will select one central country from each cluster that meets the following criteria:
     \begin{itemize}
-        \item \textbf{T1: United States}
-        ~\cite{
-            congress-website,
-            nist-website,
-            dhs-website,
-            sec-website,
-            whitehouse-website,
-            investigatory-powers-act-2016,
-            ncsc-uk,
-            telecom-security-act-2021,
-            uk-cyber-security-requirements-2024,
-            uk-cybersecurity-timeline-2024}
-        \item \textbf{T2: Japan}
-        ~\cite{
-            it-basic-law-japan,
-            ppc-legal-japan,
-            nisc-japan,
-            mofa-japan,
-            japan-law-translation,
-            cs-strategy-2015-japan,
-            cs-strategy-2018-japan,
-            telecom-business-act-japan,
-            cs-strategy-2021-japan}
-        \item \textbf{T3: China}
-        ~\cite{
-            international-cybercrime,
-            cybersecurity-law-china,
-            internet-censorship-china,
-            china-data-security-regulations,
-            cryptography-law-china}
-        \item \textbf{T4: Costa Rica}
-        ~\cite{
-            costa-rica-cybersecurity-strategy,
-            costa-rica-pop-up}
-        \item \textbf{T5: Namibia}
-        ~\cite{
-            namibia-pop-up,
-            namibia-digital-odyssey,
-            namibia-cybersecurity-strategy}
+        \item \textbf{Representativeness:}
+        The selected country should typify the overall characteristics of its cluster,
+        reflecting the general trends and patterns observed within that group.
+        \item \textbf{Data Availability:}
+        The country must have sufficient historical data on cybersecurity policies and legislation enacted over the past two decades,
+        allowing for a comprehensive analysis of policy impacts.
     \end{itemize}
-
-\subsubsection*{Visualizing Policy Impact Over Time} %4.1.2
-    With the selected representative countries,
-    we proceed to visualize the impact of cybersecurity policies on cybercrime trends.
-    For each country, we plot a line graph where
-    the x-axis represents time (from 2000 to 2023) and the y-axis represents the annual number of cybercrime incidents.
-    To highlight the influence of policy implementations,
-    we mark the data points corresponding to years in which cybersecurity policies or laws were enacted with an orange color.
-    This visualization is presented in Figure\ref{fig:representative-policy}.
-
-    This allows us to preliminarily assess the effectiveness of the policies.
-    Specifically:
-    \begin{itemize}
-        \item A downward trend in the line graph following the implementation of a policy (marked in orange)
-        suggests that the policy may have been effective in reducing cybercrime.
-        \item An upward or unchanged trend, on the other hand,
-        may indicate that the policy was ineffective or had unintended consequences.
-    \end{itemize}
-
-    This initial analysis provides a broad overview of the impact of various policies and
-    helps identify patterns that warrant further investigation.
-    It also serves as a foundation for more detailed analysis of specific policies, guiding future research directions.
-
-    \begin{figure}[htbp]
-        \centering
-        \subfloat[US (T1)]{
-            \includegraphics[width=0.45\linewidth]{../rsrc/policies/(T1)US_policy}
-        }\hfill
-        \subfloat[Japan (T2)]{
-            \includegraphics[width=0.45\linewidth]{../rsrc/policies/(T2)Japan_policy}
-        }\\
-        \subfloat[China (T3)]{
-            \includegraphics[width=0.3\linewidth]{../rsrc/policies/(T3)China_policy}
-        }\hfill
-        \subfloat[Costa Rica (T4)]{
-            \includegraphics[width=0.3\linewidth]{../rsrc/policies/(T4)Costa_Rica_policy}
-        }\hfill
-        \subfloat[Namibia (T5)]{
-            \includegraphics[width=0.3\linewidth]{../rsrc/policies/(T5)Namibia_policy}
-        }\\
-        \caption{Representative countries}\label{fig:representative-policy}
-    \end{figure}
-
-\subsubsection*{Categorizing Policies Based on Effectiveness} %4.1.3
+    By focusing on these representative countries,
+    we aim to draw meaningful insights into the effectiveness of various cybersecurity policies and laws,
+    which can then be generalized to other countries within the same cluster.
+    
+    \subsubsection*{Implementation Steps} %4.1.1
+        To identify the representative country for each cluster,
+        we first calculate the average GCI for each cluster.
+        The average GCI, denoted as \(\overline{GCI}\), is computed as follows:
+        \[ \overline{GCI} = \frac{\sum_{i=1}^{n} GCI_i}{n} \]
+        where \(n\) is the number of countries in the cluster.
+        Next, we compute the absolute deviation of each country's GCI from the cluster average:
+        \[ \{ a|a= |GCI_i - \overline{GCI}| \} \]
+        where \(a\) is the approach to the average \( \overline{GCI} \).
+        The country with the smallest deviation is considered the most representative of its cluster.
+        After this initial selection, we further filter out countries with insufficient or incomplete legal and policy documentation.
+    
+        Through this process, we identify the following representative countries for each cluster with their references:
+        \begin{itemize}
+            \item \textbf{T1: United States}
+            \item \textbf{T2: Japan}
+            \item \textbf{T3: China}
+            \item \textbf{T4: Costa Rica}
+            \item \textbf{T5: Namibia}
+        \end{itemize}
+    
+    \subsubsection*{Visualizing Policy Impact Over Time} %4.1.2
+        With the selected representative countries,
+        we proceed to visualize the impact of cybersecurity policies on cybercrime trends.
+        For each country, we plot a line graph where
+        the x-axis represents time (from 2000 to 2023) and the y-axis represents the annual number of cybercrime incidents.
+        To highlight the influence of policy implementations,
+        we mark the data points corresponding to years in which cybersecurity policies or laws were enacted with an orange color.
+        This visualization is presented in Figure~\ref{fig:representative-policy}.
+    
+        This allows us to preliminarily assess the effectiveness of the policies.
+        Specifically:
+        \begin{itemize}
+            \item A downward trend in the line graph following the implementation of a policy (marked in orange)
+            suggests that the policy may have been effective in reducing cybercrime.
+            \item An upward or unchanged trend, on the other hand,
+            may indicate that the policy was ineffective or had unintended consequences.
+        \end{itemize}
+    
+        This initial analysis provides a broad overview of the impact of various policies and
+        helps identify patterns that warrant further investigation.
+        It also serves as a foundation for more detailed analysis of specific policies, guiding future research directions.
+    
+        \begin{figure}[htbp]
+            \centering
+            \subfloat[US\cite{
+                congress-website,
+                nist-website,
+                dhs-website,
+                sec-website,
+                whitehouse-website,
+                investigatory-powers-act-2016,
+                ncsc-uk,
+                telecom-security-act-2021,
+                uk-cyber-security-requirements-2024,
+                uk-cybersecurity-timeline-2024}]{
+                \includegraphics[width=0.45\linewidth]{../rsrc/policies/(T1)US_policy}
+            }\hfill
+            \subfloat[Japan\cite{
+                it-basic-law-japan,
+                ppc-legal-japan,
+                nisc-japan,
+                mofa-japan,
+                japan-law-translation,
+                cs-strategy-2015-japan,
+                cs-strategy-2018-japan,
+                telecom-business-act-japan,
+                cs-strategy-2021-japan}]{
+                \includegraphics[width=0.45\linewidth]{../rsrc/policies/(T2)Japan_policy}
+            }\\
+            \subfloat[China\cite{
+                international-cybercrime,
+                cybersecurity-law-china,
+                internet-censorship-china,
+                china-data-security-regulations,
+                cryptography-law-china}]{
+                \includegraphics[width=0.3\linewidth]{../rsrc/policies/(T3)China_policy}
+            }\hfill
+            \subfloat[Costa Rica\cite{
+                costa-rica-cybersecurity-strategy,
+                costa-rica-pop-up}]{
+                \includegraphics[width=0.3\linewidth]{../rsrc/policies/(T4)Costa_Rica_policy}
+            }\hfill
+            \subfloat[Namibia\cite{
+                namibia-pop-up,
+                namibia-digital-odyssey,
+                namibia-cybersecurity-strategy}]{
+                \includegraphics[width=0.3\linewidth]{../rsrc/policies/(T5)Namibia_policy}
+            }\\
+            \caption{Representative countries}\label{fig:representative-policy}
+        \end{figure}
+    
+\subsection{Categorizing Policies Based on Effectiveness}\label{subsec:categorizing-policies-based-on-effectiveness} %4.2
     From the line graphs, we categorize the enacted policies into three sets
     based on the average cybercrime metrics in the years following their implementation compared to the year of enactment.
     Drawing inspiration from fuzzy set theory,
@@ -130,7 +125,7 @@ which can then be generalized to other countries within the same cluster.
     Specifically:
 
     \begin{itemize}
-        \item \textbf{Effective Policies \( (Value \to 1) \):}
+        \item \textbf{Effective Policies:}
             These are policies where the average cybercrime metrics in the years following enactment
             are lower than those in the year of enactment.
             Examples include:
@@ -143,7 +138,7 @@ which can then be generalized to other countries within the same cluster.
                 \item Cryptography Law of the People’s Republic of China (2019)
             \end{itemize}
 
-        \item \textbf{Counterproductive Policies \( (Value \to -1) \):}
+        \item \textbf{Counterproductive Policies:}
             These are policies where the average cybercrime metrics in the years following enactment
             are higher than those in the year of enactment.
             Examples include:
@@ -156,18 +151,85 @@ which can then be generalized to other countries within the same cluster.
                 \item Cybersecurity Law of the People’s Republic of China (2017)
             \end{itemize}
 
-        \item \textbf{Neutral or Mixed-Impact Policies (Values around 0):}
+        \item \textbf{Neutral or Mixed-Impact Policies:}
             These are policies where
             the average cybercrime metrics show no significant change, or the impact is ambiguous.
-            Representative examples include:
-            \begin{itemize}
-                \item Policy A
-                \item Policy B
-                \item Policy C
-                \item (Additional policies to be listed)
-            \end{itemize}
     \end{itemize}
 
     This categorization provides a structured framework for analyzing the effectiveness of cybersecurity policies and
     serves as a basis for further investigation into the factors that contribute to their success or failure.
+    
+\subsection{Analysis of Effective Policies}\label{subsec:analysis-of-effective-policies} %4.3
+    The effective policies, such as the
+    \textbf{National Institute of Standards and Technology (NIST) Cybersecurity Framework (2014)},
+    \textbf{National Cyber Security Centre (NCSC) Establishment 2016},
+    \textbf{Investigatory Powers Act 2016}, and
+    \textbf{Cryptography Law of the People’s Republic of China (2019)},
+    share common characteristics in governance, international collaboration, technical regulation, and responsiveness to emerging threats.
+    Through these mechanisms, they reduce opportunities for crime, increase the cost of cybercrime, and create a deterrent effect,
+    ultimately leading to a significant decline in cybercrime incidents.
 
+\subsection{Other cybercrime indicators}\label{subsec:other-cybercrime-indicators} %4.4
+    For certain specific metrics of cybercrime, such as the proportion of successful crimes and the proportion of reported crimes,
+    we focus on countries with more comprehensive data available in VCDB .
+    Given the limited data coverage, we select countries with sufficient data for analysis,
+    such as the United States, the United Kingdom, and Canada.
+    These countries provide a robust dataset for examining trends in cybercrime success rates and reporting rates,
+    allowing us to draw meaningful insights into the effectiveness of cybersecurity policies and practices in these regions.
+
+    \subsubsection*{Impact on Cyberattack Success Rates}
+        The line graphs depicting the crime success rate over time for the United States and Canada are shown in Figure
+        ~\ref{fig:mitigated-attempts}.
+        The figure illustrates that the establishment of the \testbf{National Cyber Security Centre (NCSC) Establishment 2016}
+        has been particularly effective in reducing the success rate of cybercrimes.
+        In contrast, other policies enacted during the same period do not appear to have had a significant impact
+        on curbing the success rate of cybercrimes.
+        This highlights the importance of centralized, technically-focused initiatives in mitigating the effectiveness of cyberattacks.
+        \begin{figure}[htbp]
+            \centering
+            \subfloat[US]{
+                \includegraphics[width=0.45\linewidth]{../rsrc/other_policies/US_policy_nearMiss}
+            }\hfill
+            \subfloat[Canada\cite{
+                privacy-laws-in-canada-pipeda,
+                acts-a-11-7,
+                cyber-index-en,
+                cyber-strgy-en,
+                cse-cst-gc-ca-en,
+                cyber-ci-en,
+                royal-assent,
+                cybersecurity-strategy,
+                defence-cybersecurity,
+                eng-00013}]{
+                \includegraphics[width=0.45\linewidth]{../rsrc/other_policies/Canada_policy_nearMiss}
+            }\\
+            \caption{Mitigated Attempts}\label{fig:mitigated-attempts}
+        \end{figure}
+
+    \subsubsection*{Analysis of Cybercrime Reporting Rate}
+        In terms of cybercrime reporting rates, the available data for analysis is limited.
+        Taking the United States and the United Kingdom as examples, we plot the reporting rate over time in Figure
+        ~\ref{fig:reported-attempts}.
+        From the graph alone, it appears that
+        the \textbf{Presidential Policy Directive 21 (PPD-21) (2013)} in the United States and
+        the implementation of \textbf{The General Data Protection Regulation (GDPR) (2018)}
+        in the United Kingdom have had a positive impact on increasing reporting rates.
+        However, due to the limited amount of data, there is significant noise in the results.
+        In reality, the majority of laws and policies do not seem to have a substantial effect on improving reporting rates.
+        \begin{figure}[htbp]
+            \centering
+            \subfloat[US]{
+                \includegraphics[width=0.45\linewidth]{../rsrc/other_policies/US_policy_suspected}
+            }\hfill
+            \subfloat[UK\cite{
+                investigatory-powers-act,
+                uk-cyber-security-strategy-protecting-and-promoting-the-nation,
+                investigatory-powers,
+                guide-to-the-general-data-protection-regulation-gdpr,
+                network-and-information-systems-regulations,
+                telecommunications-security,
+                online-safety-bill}]{
+                \includegraphics[width=0.45\linewidth]{../rsrc/other_policies/UK_policy_suspected}
+            }\\
+            \caption{Reported Attempts}\label{fig:reported-attempts}
+        \end{figure}
