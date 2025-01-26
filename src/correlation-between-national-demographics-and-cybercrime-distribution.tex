@@ -45,3 +45,19 @@ and inform the development of more targeted and effective cybersecurity policies
         This transformation reduces the impact of extreme values and makes the data more symmetric,
         bringing it closer to a normal distribution.
         By applying this transformation, we ensure that the data is better suited for statistical analysis and modeling.
+
+    \subsubsection{Spearman Correlation Analysis} %5.2.3
+        To quantify the relationship between those data and the number of cybercrime incidents,
+        we calculate the Spearman correlation coefficient.
+        This non-parametric measure assesses the strength and direction of the monotonic relationship between two variables.
+        The Spearman correlation coefficient (\(\rho\)) and its associated \(p\)-value are computed,
+        with the \(p\)-value used to determine the statistical significance of the correlation.
+        A \(p\)-value smaller than \(1 \times 10^{-10}\) indicates an extremely strong statistical significance.
+        The Spearman correlation coefficient is calculated as follows:
+        \[ \rho = 1 - \frac{6 \sum d_i^2}{n(n^2 - 1)} \]
+        where:
+        \begin{itemize}
+            \item \(\rho\) is the Spearman rank correlation coefficient,
+            \item \(d_i\) is the difference between the ranks of each pair of observations, and
+            \item \(n\) is the number of observations.
+        \end{itemize}
