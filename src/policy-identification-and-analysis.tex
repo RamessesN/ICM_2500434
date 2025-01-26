@@ -232,7 +232,7 @@ we aim to provide actionable insights for the development and refinement of cybe
     \end{figure}
 
     Based on these, conclusions are as follows:
-    \subsubsection*{Canada}
+    \subsubsection*{Canada} % 4.5.1
         The model fits very well,
         indicating that the bill had a significant impact on cybercrime 3 tears after its passage.
         Canada's crime data are less volatile and
@@ -243,7 +243,7 @@ we aim to provide actionable insights for the development and refinement of cybe
             \item Poisson bias: 2.5 (very low).
             Actual crime trends: low number of crimes (peak around 10).
         \end{itemize}
-    \subsubsection*{Costa Rica}
+    \subsubsection*{Costa Rica} % 4.5.2
         The model is a fair fit, with higher bias than Canada but lower bias than the United States.
         It may indicate that the long-term effects of the Act are present,
         but the data fluctuates greatly or is interfered by other factors
@@ -253,7 +253,7 @@ we aim to provide actionable insights for the development and refinement of cybe
             \item Poisson bias: 14.7 (medium).
             \item Actual crime trends: moderate number of crimes (peak around 60).
         \end{itemize}
-    \subsubsection*{Japan}
+    \subsubsection*{Japan} % 4.5.3
         The bias value is extremely low, but the actual crime number is almost zero,
         possibly reflecting incomplete data recording or indeed rare cybercrime in Japan.
         Although the model fits well, 
@@ -263,7 +263,7 @@ we aim to provide actionable insights for the development and refinement of cybe
             \item Poisson bias: 0.6 (very low).
             \item Actual crime trends: very low number of crimes (peak around 1).
         \end{itemize}
-    \subsubsection*{United Kingdom}
+    \subsubsection*{United Kingdom} % 4.5.4
         UK has a poor model fit, indicating a weak relationship between bills and crime rates.
         \begin{itemize}
             \item Best lag period: 3 years.
@@ -275,7 +275,7 @@ we aim to provide actionable insights for the development and refinement of cybe
             \item Crime data influenced by multiple factors (e.g., transnational cyberattacks).
             \item Delayed or limited implementation of the bill.
         \end{itemize}
-    \subsubsection*{United States}
+    \subsubsection*{United States} % 4.5.5
         US is a very poor fit,
         indicating that the current model does not explain the relationship between bills and crime rates.
         \begin{itemize}
@@ -301,5 +301,17 @@ we aim to provide actionable insights for the development and refinement of cybe
         The United Kingdom's laws are less favourable to the proceeds of cybercrime;
         The United States has the worst legal policies for cybercrime.
         In many cases, the release of laws does not directly lead to a decrease in crime rates.
-
-
+\subsection{Conclusions on the impact of laws and policies on Internet crime rates}
+\label{subsec:conclusions-on-the-impact-of-laws-and-policies-on-internet-crime-rates} % 4.6
+    From the above information, we can learn that the impact of legal policies on cybercrime has a significant time lag effect,
+    that is, the time when legal policies really work may be several years in the future.
+    Moreover, the effects of laws and policies vary from country to country.
+    For T1 countries like the United States with a large population,
+    the increase in the number of laws may not directly reduce the crime rate.
+    Even if the laws are issued frequently, it is difficult to curb the growth of the number of cyber crimes,
+    indicating that there may be some problems in the content or implementation of the laws.
+    But for countries such as Canada, the number of laws is consistent but the effect is significant,
+    which indicates that the laws are well-designed and effectively implemented.
+    Outliers in the data, such as the spike in cybercrime in the US in 2010, can skew the true trend to some extent.
+    Finally, long-term policy effects are better than short-term ones.
+    Therefore, it is necessary to comprehensively consider the above factors to control the Internet crime rate.
