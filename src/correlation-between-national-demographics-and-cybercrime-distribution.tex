@@ -61,3 +61,61 @@ and inform the development of more targeted and effective cybersecurity policies
             \item \(d_i\) is the difference between the ranks of each pair of observations, and
             \item \(n\) is the number of observations.
         \end{itemize}
+
+\subsection{Data Visualization}\label{subsec:data-visualization} %5.3
+To further explore the relationship between demographic factors and cybercrime,
+we generate several visualizations.
+These include scatter plots, time series plots, and distribution plots,
+all of which are presented on a logarithmic scale
+due to the logarithmic transformation applied during data preprocessing.
+
+    \subsubsection{Scatter Plots}
+        We begin by plotting scatter diagrams to visualize the relationship between demographic indicators
+        (such as internet user penetration, higher education enrollment, and GDP) and the logarithmically transformed cybercrime counts.
+        A regression line is added to each scatter plot to highlight the trend.
+        The Spearman correlation coefficient (\(\rho\)) and its associated \(p\)-value are annotated on the plots to provide statistical context.
+        For example:
+        \begin{itemize}
+            \item The scatter plot for \textbf{internet user penetration}
+                shows a correlation coefficient of \(\rho = 0.17\) with a highly significant \(p\)-value of \(2.33 \times 10^{-12}\).
+            \item The scatter plot for \textbf{higher education enrollment}
+                reveals a correlation coefficient of \(\rho = 0.13\) with a \(p\)-value of \(2.60 \times 10^{-5}\).
+            \item The scatter plot for \textbf{GDP}
+                indicates a weaker correlation (\(\rho = 0.45\)) but with an extremely low \(p\)-value of \(2.456 \times 10^{-87}\),
+                suggesting a statistically significant relationship.
+        \end{itemize}
+
+    \subsubsection{Time Series Plots}
+        Next, we construct time series plots to analyze the temporal trends in cybercrime and GDP .
+        These plots display the annual average of logarithmically transformed cybercrime counts and GDP over time,
+        allowing us to observe how these variables have evolved from 2010 to 2022.
+        The time series plot for GDP reveals a steady increase over the years,
+        while cybercrime counts show fluctuations with a general upward trend.
+        Figure~\ref{fig:gdp}.
+        \begin{figure}[htbp]
+            \includegraphics[width=1\linewidth]{../rsrc/demographics/gdp_crime_and_time}\label{fig:gdp}
+        \end{figure}
+
+    \subsubsection{Distribution Plots}
+        Finally, we generate distribution plots to examine the spread and density of the data.
+        These plots illustrate the distribution of demographic indicators
+        (e.g., internet user penetration, higher education enrollment) and their relationship with cybercrime counts.
+        For example:
+        \begin{itemize}
+            \item The distribution plot for \textbf{internet user penetration} shows a right-skewed distribution,
+                indicating that most countries have relatively low internet penetration rates.
+                Figure~\ref{fig:internet}.
+            \item The distribution plot for \textbf{higher education enrollment} reveals a more uniform distribution,
+                with a peak around 60--80\% enrollment rates.
+                Figure~\ref{fig:education}.
+        \end{itemize}
+        \begin{figure}[htbp]
+            \centering
+            \subfloat{
+                \includegraphics[width=1\linewidth]{../rsrc/demographics/Internet Users}\label{fig:internet}
+            }\\
+            \subfloat{
+                \includegraphics[width=1\linewidth]{../rsrc/demographics/Tertiary Education}\label{fig:education}
+            }\\
+            \caption{Trends and Correlations Related to Cybercrime}
+        \end{figure}
