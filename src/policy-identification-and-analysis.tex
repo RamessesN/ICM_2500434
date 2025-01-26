@@ -36,14 +36,16 @@ we aim to provide actionable insights for the development and refinement of cybe
         After this initial selection, we further filter out countries with insufficient or incomplete legal and policy documentation.
     
         Through this process, we identify the following representative countries for each cluster with their references:
-        \begin{itemize}
-            \item \textbf{T1: United States}
-            \item \textbf{T2: Japan}
-            \item \textbf{T3: China}
-            \item \textbf{T4: Costa Rica}
-            \item \textbf{T5: Namibia}
-        \end{itemize}
-    
+        \bigskip
+        \begin{center}
+            \begin{tabular}{ccccccccc}
+                \hline
+                \textbf{T1} &  & \textbf{T2} &  & \textbf{T3} &  & \textbf{T4} &  & \textbf{T5} \\
+                \hline
+                United States &  & Japan &  & China &  & Costa Rica &  & Namibia \\
+            \end{tabular}
+        \end{center}
+
     \subsubsection*{Visualizing Policy Impact Over Time} %4.1.2
         With the selected representative countries,
         we proceed to visualize the impact of cybersecurity policies on cybercrime trends.
@@ -196,10 +198,10 @@ we aim to provide actionable insights for the development and refinement of cybe
     but it will be effective for the network control in the next few years.
     Therefore, we do this by using a Poisson regression model and introducing a time lag effect.
     The model is described as:
-    \[ \log(\mathbf{E}[Crime_t]) = \beta_0 + \sum_{k=1}^{K} \beta_k Bill_{t-k} \]
+    \[ \log(\mathbb{E}[Crime_t]) = \beta_0 + \sum_{k=1}^{K} \beta_k Bill_{t-k} \]
     where
     \begin{itemize}
-        \item \(\mathbf{E}\) is the expected crime number in the year \(t\),
+        \item \(\mathbb{E}\) is the expected crime number in the year \(t\),
         \item \(\beta_0\) is the natural logarithm of the baseline crime rate when all explanatory variables are zero,
         \item \(\beta_1, \beta_2, \beta_3\) represent the marginal impact of bills on the crime rate (on a logarithmic scale)
             in the first, second, and third year after passage respectively,
