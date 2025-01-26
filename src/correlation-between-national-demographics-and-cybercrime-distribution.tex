@@ -17,3 +17,31 @@ and inform the development of more targeted and effective cybersecurity policies
     which was previously processed in our earlier analysis.
     By integrating these datasets,
     we ensure a comprehensive foundation for examining the relationship between demographic factors and cybercrime trends.
+
+    \subsubsection{Data Integration and Cleaning} %5.1.1
+        For each dataset, we filter the data to include only the years from 2010 to 2022.
+        After filtering,
+        we handle missing values by allowing a maximum missing value proportion of 20\% for each country's data.
+        Missing values within this threshold are filled using linear interpolation.
+        Any data points that remain missing after interpolation
+        are removed to ensure the integrity and reliability of the dataset.
+        This preprocessing step ensures that our analysis is based on a consistent and high-quality dataset.
+
+\subsection{} %5.2
+    \subsubsection{Data Consolidation} %5.2.1
+        After preprocessing the individual datasets, we integrate the internet user data and the cybercrime incident data.
+        This is achieved by performing an inner join on the two datasets using country codes and years as the matching keys.
+        The inner join ensures that only the countries and years present in both datasets are retained,
+        resulting in a combined dataset where each entry corresponds to a specific country and year with complete data
+        for both internet user penetration and cybercrime incidents.
+        This step is crucial for ensuring the accuracy and consistency of our subsequent analysis.
+
+    \subsubsection{Logarithmic Transformation} %5.2.2
+        To address the skewness in the distribution of cybercrime incident counts,
+        we apply a logarithmic transformation to the data.
+        As described in Subsection~\ref{subsec:building-the-hotspot-map},
+        we use the \textit{log1p} transformation, which computes the natural logarithm of \(1 + x\),
+        where \(x\) is the original cybercrime count.
+        This transformation reduces the impact of extreme values and makes the data more symmetric,
+        bringing it closer to a normal distribution.
+        By applying this transformation, we ensure that the data is better suited for statistical analysis and modeling.
