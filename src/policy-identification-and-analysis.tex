@@ -1,0 +1,77 @@
+To identify the effectiveness of national cybersecurity policies,
+it is essential to analyze the correlation between the implementation of these policies and the subsequent trends in cybercrime.
+By examining the distribution of cybercrimes and comparing it with the timing and content of various national policies,
+we can discern patterns that highlight which measures are particularly effective or ineffective.
+This analysis will focus on key metrics such as the reduction in
+cybercrime incidents, the success rate of prosecutions, and the overall resilience of national cybersecurity infrastructures.
+Through this data-driven approach,
+we aim to provide actionable insights for the development and refinement of cybersecurity policies.
+\subsection{Selection of Representative Centroid Countries}\label{subsec:selection-of-representative centroid-countries} %4.1
+Having constructed a clustering model to categorize countries into five clusters (T1 to T5) based on GCI and other relevant metrics,
+we now proceed to analyze the effectiveness of cybersecurity policies within each cluster.
+To ensure a representative and data-driven analysis,
+we will select one central country from each cluster that meets the following criteria:
+\begin{itemize}
+    \item \textbf{Representativeness:}
+    The selected country should typify the overall characteristics of its cluster,
+    reflecting the general trends and patterns observed within that group.
+    \item \textbf{Data Availability:}
+    The country must have sufficient historical data on cybersecurity policies and legislation enacted over the past two decades,
+    allowing for a comprehensive analysis of policy impacts.
+\end{itemize}
+By focusing on these representative countries,
+we aim to draw meaningful insights into the effectiveness of various cybersecurity policies and laws,
+which can then be generalized to other countries within the same cluster.
+
+To identify the representative country for each cluster,
+we first calculate the average Global Cybersecurity Index (GCI) for each cluster.
+The average GCI, denoted as \(\overline{GCI}\), is computed as follows:
+\[ \overline{GCI} = \frac{\sum_{i=1}^{n} GCI_i}{n} \]
+where \(n\) is the number of countries in the cluster.
+Next, we compute the absolute deviation of each country's GCI from the cluster average:
+\[|GCI_i - \overline{GCI}|\] .
+The country with the smallest deviation is considered the most representative of its cluster.
+After this initial selection, we further filter out countries with insufficient or incomplete legal and policy documentation.
+
+Through this process, we identify the following representative countries for each cluster:
+\begin{itemize}
+    \item \textbf{T1: United States}
+    ~\cite{
+        congress-website,
+        nist-website,
+        dhs-website,
+        sec-website,
+        whitehouse-website,
+        investigatory-powers-act-2016,
+        ncsc-uk,
+        telecom-security-act-2021,
+        uk-cyber-security-requirements-2024,
+        uk-cybersecurity-timeline-2024}
+    \item \textbf{T2: Japan}
+    ~\cite{
+        it-basic-law-japan,
+        ppc-legal-japan,
+        nisc-japan,
+        mofa-japan,
+        japan-law-translation,
+        cs-strategy-2015-japan,
+        cs-strategy-2018-japan,
+        telecom-business-act-japan,
+        cs-strategy-2021-japan}
+    \item \textbf{T3: China}
+    ~\cite{
+        international-cybercrime,
+        cybersecurity-law-china,
+        internet-censorship-china,
+        china-data-security-regulations,
+        cryptography-law-china}
+    \item \textbf{T4: Costa Rica}
+    ~\cite{
+        costa-rica-cybersecurity-strategy,
+        costa-rica-pop-up}
+    \item \textbf{T5: Namibia}
+    ~\cite{
+        namibia-pop-up,
+        namibia-digital-odyssey,
+        namibia-cybersecurity-strategy}
+\end{itemize}
