@@ -2,15 +2,15 @@
 \begin{tabular}{ll}
     \textbf{Symbol} & \textbf{Description} \\
     \hline
-    $D_i$ & Cybercrime distribution in each country \\
-    $P_i$ & Population of each country \\
-    $y$   & Transformed value using \( y = \log(1 + x) \). \\
-\end{tabular}
-
-\bigskip
-
-\noindent
-\begin{tabular}{ll}
+    $D_i$                     & Cybercrime distribution in each country. \\
+    $P_i$                     & Population of each country. \\
+    $y$                       & Transformed value using \( y = \log(1 + x) \). \\
+    $\mathbf{E}[Crime_t]$     & Poisson regression model predicted value. \\
+    $\beta_0$                 & Intercept term. \\
+    $\beta_1,\beta_2,\beta_3$ & Regression coefficients. \\
+    $Bill_{t-k}$              & Lagged variable. \\
+    $K$                       & Greatest lagged number. \\
+     & \\
     \textbf{Abbreviation} & \textbf{Full Form} \\
     \hline
     GCI   & Global Cybersecurity Index\cite{gci-2024} \\
