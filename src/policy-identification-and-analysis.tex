@@ -197,12 +197,15 @@ we aim to provide actionable insights for the development and refinement of cybe
     Therefore, we do this by using a Poisson regression model and introducing a time lag effect.
     The model is described as:
     \[ \log(\mathbf{E}[Crime_t]) = \beta_0 + \sum_{k=1}^{K} \beta_k Bill_{t-k} \]
-    where \(\mathbf{E}\) is the expected crime number in the year \(t\),
-    \(\beta_0\) is the natural logarithm of the baseline crime rate when all explanatory variables are zero,
-    \(\beta_1, \beta_2, \beta_3\) represent the marginal impact of bills on the crime rate (on a logarithmic scale)
-    in the first, second, and third year after passage respectively,
-    \(Bill_{t-k}\) is the number of bills passed in year \(t-k\) (\(k\) = 1,2,3), and
-    \(K\) is the greatest lagged number.
+    where
+    \begin{itemize}
+        \item \(\mathbf{E}\) is the expected crime number in the year \(t\),
+        \item \(\beta_0\) is the natural logarithm of the baseline crime rate when all explanatory variables are zero,
+        \item \(\beta_1, \beta_2, \beta_3\) represent the marginal impact of bills on the crime rate (on a logarithmic scale)
+            in the first, second, and third year after passage respectively,
+        \item \(Bill_{t-k}\) is the number of bills passed in year \(t-k\) (\(k\) = 1,2,3), and
+        \item \(K\) is the greatest lagged number.
+    \end{itemize}
 
     The reason why the linear regression model is not used is that the obtained \(R2\) value is very low,
     indicating that the relationship between the time of bill issuance and the crime rate is not obvious.
