@@ -26,17 +26,22 @@
 \usepackage{changepage}
 
 \hypersetup{
-colorlinks=true,
-linktoc=none,
-linkcolor=red,
-citecolor=blue,
-urlcolor=blue,
+	colorlinks=true,
+	linkcolor=red,
+	citecolor=blue,
+	urlcolor=blue,
+	linktoc=all,
 }
 
 % Page Settings
 \pagestyle{fancy}
-\lhead{Team \# \Team}
-\rhead{Page \thepage\ of \pageref{LastPage}}
+\fancycf{}
+\fancyhead[L]{Team \# \Team}
+\fancyhead[R]{
+	\hypersetup{linkcolor=black}
+	Page \thepage\ of \pageref{LastPage}
+	\hypersetup{linkcolor=red}
+}
 
 % Mathematical env.
 \newtheorem{theorem}{Theorem}
@@ -114,7 +119,12 @@ urlcolor=blue,
 \end{adjustwidth}
 
 \newpage
-\tableofcontents
+{
+	\hypersetup{
+		linkcolor=black,
+	}
+	\tableofcontents
+}
 \newpage
 
 \section{Introduction}
