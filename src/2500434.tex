@@ -58,13 +58,47 @@
 	\hline
 \end{tabular}}
 
-% TODO: Summary
-% 1. 12-point Times New Roman font ;
-% 2. pdf naming format: 2500434.pdf ;
-% 3. No name of school, advisor, or team members .
+% Summary %
 \begin{center}
-Hello Summary!
+	\fontsize{16}{19}\selectfont \textbf{Modeling Cybercrime Governance: When Policies Meet the Attackers} \\
+	\bigskip
+	\fontsize{16}{19}\selectfont \textbf{Summary} \\
 \end{center}
+In recent years, especially since 2012, the number of cyber crimes in various countries has risen sharply.
+Developed countries, led by the United States and Europe,
+are more seriously affected by cyberattacks, and this trend may cause national data leakage and cause great losses.
+Therefore, models are needed to quantify the impact of the cybercrime situation in each country under various factors.
+
+By the size of the GCI indicator, we divided the countries into five gradients.
+The typical countries in each partition are selected according to the variance and the size of the data.
+
+First, we build a massive data-driven model to represent the cybercrime situation around the world over the years, and
+visually display it in the form of heat maps.
+
+For the global cybercrime situation under the influence of legal policies,
+we also establish a huge data-driven model to represent the relationship between legal policies and crime rates of typical countries.
+
+In order to consider the timeliness of legal policies,
+we use Poisson regression analysis and introduce a time lag model to evaluate different policies in a country each year.
+
+Based on the analysis of all the data and the theory of all the models, we come to the following conclusion:
+reducing the incidence of cybercrime needs to be clear that the law has a significant lag effect,
+generally starting to take effect in three years.
+Effective legal forms should be more inclined to international legislation and transnational legislation,
+such laws have stronger effectiveness and longer duration, and are universal to the cybercrime governance of the whole region.
+The number of bills does not completely determine the improvement of the crime level of a country.
+It should also take into account the overall national conditions.
+
+The national law enforcement capacity should be improved,
+and the pertinence and enforceability of law enforcement policies should be improved.
+Secondly, the influence of laws and policies on cybercrime is also affected by other environmental factors,
+such as GDP and education level.
+Moreover, long-term legal policies are generally better than short-term ones.
+
+%TODO
+
+Comprehensive consideration of the above aspects can greatly control the cyber crime rate,
+to make the national system more stable.
 
 \newpage
 \tableofcontents
@@ -93,10 +127,13 @@ Hello Summary!
 \section{Strength \& Weakness}\label{sec:strength-&-weakness}
 \input{strength-&-weakness} %7
 
-\bibliographystyle{unsrt}
-\bibliography{references} %8
+\newpage
+\section*{\begin{center} Memo \end{center}}\label{sec:memo}
+\input{memo} %8
+\newpage
 
-%\section*{Appendix}\label{sec:appendix} %9
+\bibliographystyle{unsrt}
+\bibliography{references} %9
 
 \newpage
 \section*{\centerline{\underline{Report on Use of AI}}}
