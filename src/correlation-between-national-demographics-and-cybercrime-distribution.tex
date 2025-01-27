@@ -96,6 +96,7 @@ due to the logarithmic transformation applied during data preprocessing.
         while cybercrime counts show fluctuations with a general upward trend.
         Figure~\ref{fig:gdp}.
         \begin{figure}[htbp]
+            \centering
             \includegraphics[width=1\linewidth]{../rsrc/demographics/gdp_crime_and_time}
             \caption{GDP Chart}\label{fig:gdp}
         \end{figure}
@@ -116,10 +117,76 @@ due to the logarithmic transformation applied during data preprocessing.
         \begin{figure}[htbp]
             \centering
             \subfloat{
-                \includegraphics[width=1\linewidth]{../rsrc/demographics/Internet Users}\label{fig:internet}
+                \includegraphics[width=0.8\linewidth]{../rsrc/demographics/Internet Users}\label{fig:internet}
             }\\
             \subfloat{
-                \includegraphics[width=1\linewidth]{../rsrc/demographics/Tertiary Education}\label{fig:education}
+                \includegraphics[width=0.8\linewidth]{../rsrc/demographics/Tertiary Education}\label{fig:education}
             }\\
             \caption{Trends and Correlations Related to Cybercrime}
+        \end{figure}
+
+    \subsubsection{Model Comparison: TOPSIS} %5.3.4
+        \begin{enumerate}
+            \item \textbf{Data Standardization}
+                Standardize raw data to eliminate dimensional differences.
+                For each indicator \(j\):
+                - \textbf{Positive indicators} (higher values are better):
+                \[
+                    x_{ij}^* = \frac{x_{ij} - \min(x_j)}{\max(x_j) - \min(x_j)}
+                \]
+                - \textbf{Negative indicators} (lower values are better):
+                \[
+                    x_{ij}^* = \frac{\max(x_j) - x_{ij}}{\max(x_j) - \min(x_j)}
+                \]
+                where \(x_{ij}\) is the raw value of the \(i\)-th country for the \(j\)-th indicator.
+            \item \textbf{Entropy-Based Weight Calculation}
+                1. Calculate the probability distribution of standardized values:
+                \[
+                    p_{ij} = \frac{x_{ij}^*}{\sum_{i=1}^n x_{ij}^*}, \quad e_j = -\frac{1}{\ln n} \sum_{i=1}^n p_{ij} \ln p_{ij} \quad (p_{ij} \ln p_{ij} = 0 \text{ if } p_{ij}=0).
+                \]
+                2. Derive weights from entropy values:
+                \[
+                    w_j = \frac{1 - e_j}{\sum_{k=1}^m (1 - e_k)}.
+                \]
+            \item \textbf{Weighted Standardized Matrix}
+                Construct the matrix \(V\) by combining standardized data with weights:
+                \[
+                    v_{ij} = w_j \cdot x_{ij}^*, \quad V = [v_{ij}]_{n \times m}.
+                \]
+            \item \textbf{Ideal Solutions}
+                Define the ideal (\(S^+\)) and negative-ideal (\(S^-\)) solutions:
+                \[
+                    S^+ = \left\{ \max_{i}(v_{ij}) \mid j=1,2,\dots,m \right\}, \quad S^- = \left\{ \min_{i}(v_{ij}) \mid j=1,2,\dots,m \right\}.
+                \]
+            \item \textbf{Ranking via Relative Closeness}
+                1. Calculate Euclidean distances to ideal solutions:
+                \[
+                    D_i^+ = \sqrt{\sum_{j=1}^m (v_{ij} - S_j^+)^2}, \quad D_i^- = \sqrt{\sum_{j=1}^m (v_{ij} - S_j^-)^2}.
+                \]
+                2. Compute relative closeness for ranking:
+                \[
+                    C_i = \frac{D_i^-}{D_i^+ + D_i^-}, \quad \text{where } C_i \in [0,1]. \quad (C_i \to 1 \text{ indicates better performance}).
+                \]
+        \end{enumerate}
+
+        The Pearson correlation matrix (see Appendix~\ref{fig:correlation-matrix}) reveals critical insights into the relationships between key variables.
+        Notably, \textbf{crime rates} exhibit a significant negative correlation with \textbf{education levels} (\(r = -0.13^*\)),
+        suggesting that regions with higher educational attainment may experience reduced criminal activity, consistent with human capital theory.
+        Similarly, \textbf{law enforcement intensity} (Warrant) shows a moderate negative association with crime rates (\(r = -0.25\)),
+        reinforcing the deterrent effect of robust policing.
+        The strongest observed correlation involves \textbf{risk prevention measures} (Risk),
+        which display a pronounced negative relationship with crime rates (\(r = -0.50\) to \(-0.75\)),
+        implying that targeted risk mitigation strategies could substantially curb criminal behavior.
+
+        Among socioeconomic factors, \textbf{GDP} is positively correlated with \textbf{data reporting completeness} (\(r = 0.17^{**}\)),
+        indicating that economically developed regions tend to have more reliable crime monitoring systems.
+        Conversely, \textbf{internet penetration} demonstrates only a weak, non-significant link to crime rates (\(r = 0.1\)),
+        highlighting its limited direct influence in the current model.
+
+        \noindent \textit{Note: \(^*p < 0.05\), \(^{**}p < 0.01\). Variable definitions are provided in Appendix A.}
+
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.75\linewidth]{../rsrc/demographics/correlation_matrix}
+            \caption{Correlation Matrix}\label{fig:correlation-matrix}
         \end{figure}
