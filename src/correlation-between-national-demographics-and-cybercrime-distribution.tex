@@ -59,7 +59,9 @@ and inform the development of more targeted and effective cybersecurity policies
         with the \(p\)-value used to determine the statistical significance of the correlation.
         A \(p\)-value smaller than \(1 \times 10^{-10}\) indicates an extremely strong statistical significance.
         The Spearman correlation coefficient is calculated as follows:
-        \[ \rho = 1 - \frac{6 \sum d_i^2}{n(n^2 - 1)} \]
+        \begin{equation}
+            \rho = 1 - \frac{6 \sum d_i^2}{n(n^2 - 1)}\label{eq:5-2-3-1}
+        \end{equation}
         where:
         \begin{itemize}
             \item \(\rho\) is the Spearman rank correlation coefficient,
@@ -133,42 +135,42 @@ due to the logarithmic transformation applied during data preprocessing.
                 Standardize raw data to eliminate dimensional differences.
                 For each indicator \(j\):
                 - \textbf{Positive indicators} (higher values are better):
-                \[
-                    x_{ij}^* = \frac{x_{ij} - \min(x_j)}{\max(x_j) - \min(x_j)}
-                \]
+                \begin{equation}
+                    x_{ij}^* = \frac{x_{ij} - \min(x_j)}{\max(x_j) - \min(x_j)}.\label{eq:5-3-4-1}
+                \end{equation}
                 - \textbf{Negative indicators} (lower values are better):
-                \[
-                    x_{ij}^* = \frac{\max(x_j) - x_{ij}}{\max(x_j) - \min(x_j)}
-                \]
+                \begin{equation}
+                    x_{ij}^* = \frac{\max(x_j) - x_{ij}}{\max(x_j) - \min(x_j)}.\label{eq:5-3-4-2}
+                \end{equation}
                 where \(x_{ij}\) is the raw value of the \(i\)-th country for the \(j\)-th indicator.
             \item \textbf{Entropy-Based Weight Calculation} \\
                 1. Calculate the probability distribution of standardized values:
-                \[
-                    p_{ij} = \frac{x_{ij}^*}{\sum_{i=1}^n x_{ij}^*}, \quad e_j = -\frac{1}{\ln n} \sum_{i=1}^n p_{ij} \ln p_{ij} \quad (p_{ij} \ln p_{ij} = 0 \text{ if } p_{ij}=0).
-                \]
+                \begin{equation}
+                    p_{ij} = \frac{x_{ij}^*}{\sum_{i=1}^n x_{ij}^*}, \quad e_j = -\frac{1}{\ln n} \sum_{i=1}^n p_{ij} \ln p_{ij} \quad (p_{ij} \ln p_{ij} = 0 \text{ if } p_{ij}=0).\label{eq:5-3-4-3}
+                \end{equation}
                 2. Derive weights from entropy values:
-                \[
-                    w_j = \frac{1 - e_j}{\sum_{k=1}^m (1 - e_k)}.
-                \]
+                \begin{equation}
+                    w_j = \frac{1 - e_j}{\sum_{k=1}^m (1 - e_k)}.\label{eq:5-3-4-4}
+                \end{equation}
             \item \textbf{Weighted Standardized Matrix}
                 Construct the matrix \(V\) by combining standardized data with weights:
-                \[
-                    v_{ij} = w_j \cdot x_{ij}^*, \quad V = [v_{ij}]_{n \times m}.
-                \]
+                \begin{equation}
+                    v_{ij} = w_j \cdot x_{ij}^*, \quad V = [v_{ij}]_{n \times m}.\label{eq:5-3-4-5}
+                \end{equation}
             \item \textbf{Ideal Solutions}
                 Define the ideal (\(S^+\)) and negative-ideal (\(S^-\)) solutions:
-                \[
-                    S^+ = \left\{ \max_{i}(v_{ij}) \mid j=1,2,\dots,m \right\}, \quad S^- = \left\{ \min_{i}(v_{ij}) \mid j=1,2,\dots,m \right\}.
-                \]
+            \begin{equation}
+                S^+ = \left\{ \max_{i}(v_{ij}) \mid j=1,2,\dots,m \right\}, \quad S^- = \left\{ \min_{i}(v_{ij}) \mid j=1,2,\dots,m \right\}.\label{eq:5-3-4-6}
+            \end{equation}
             \item \textbf{Ranking via Relative Closeness} \\
                 1. Calculate Euclidean distances to ideal solutions:
-                \[
-                    D_i^+ = \sqrt{\sum_{j=1}^m (v_{ij} - S_j^+)^2}, \quad D_i^- = \sqrt{\sum_{j=1}^m (v_{ij} - S_j^-)^2}.
-                \]
+            \begin{equation}
+                D_i^+ = \sqrt{\sum_{j=1}^m (v_{ij} - S_j^+)^2}, \quad D_i^- = \sqrt{\sum_{j=1}^m (v_{ij} - S_j^-)^2}.\label{eq:5-3-4-7}
+            \end{equation}
                 2. Compute relative closeness for ranking:
-                \[
-                    C_i = \frac{D_i^-}{D_i^+ + D_i^-}, \quad \text{where } C_i \in [0,1]. \quad (C_i \to 1 \text{ indicates better performance}).
-                \]
+            \begin{equation}
+                C_i = \frac{D_i^-}{D_i^+ + D_i^-}, \quad \text{where } C_i \in [0,1]. \quad (C_i \to 1 \text{ indicates better performance}).\label{eq:5-3-4-8}
+            \end{equation}
         \end{enumerate}
 
         The Pearson correlation matrix (see Appendix~\ref{fig:correlation-matrix}) reveals critical insights into the relationships between key variables.

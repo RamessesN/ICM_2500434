@@ -14,16 +14,17 @@ but also allows for fitting the data against policy and population variables to 
 	For instance, the United States, where the VERIS concept was first proposed, has the highest number of recorded incidents (7,236),
 	whereas many other countries have only 1 or 2 recorded incidents.
 	To address this significant disparity in data distribution, we applied a logarithmic transformation to the data using the formula
-	\[ y=\log(1+x) \]
+	\begin{equation}
+		y=\log(1+x)\label{eq:3-1-1}
+	\end{equation}
 	where x here represents $D_i$.
-	This transformation was implemented using the function
-	\[ np.log1p() \]
+	This transformation was implemented using the function \( np.log1p() \)
 	in Python to ensure computational precision and stability, particularly for small values.
 	The final results are visualized in Figure 1.
 	\begin{figure}[htbp]
 		\centering
 		\includegraphics[width=1\linewidth]{../rsrc/distributions/Crime_distribution}
-		\caption{Crime distribution}\label{fig:crime-distribution}
+		\caption{Visualization of Global Cybercrime Distribution}\label{fig:crime-distribution}
 	\end{figure}
 \subsection{High-prevalence regions}\label{subsec:high-prevalence-regions} %3.2
 	We obtained population data $P_i$ for various countries over recent decades from the World Bank Group's website\cite{population}.
@@ -36,8 +37,9 @@ but also allows for fitting the data against policy and population variables to 
 	Since the resulting values were too small for practical analysis,
 	we scaled them by a factor of $10^{8}$ to express the data as the number of cybercrime incidents per 100 million people,
 	denoted as $hmD/P_i$:
-	\[ hmD/P_i = \frac{D_i}{P_i} \times 10^{8} \]
-
+	\begin{equation}
+		hmD/P_i = \frac{D_i}{P_i} \times 10^{8}\label{eq:3-2}
+	\end{equation}
 	According to the GCI (Global Cybersecurity Index) standards, countries are classified into five tiers, denoted as T1 to T5.
 	We used this classification as the basis for K-means clustering analysis,
 	dividing the 109 countries into five groups based on the percentiles published on the GCI website:
@@ -59,7 +61,7 @@ but also allows for fitting the data against policy and population variables to 
 	Due to the disproportionately high volume of data from the United States,
 	we applied the same logarithmic transformation (\( y = \log(1 + x) \)) as in Figure~\ref{fig:crime-distribution} for consistency,
 	where $x$ represents successful attacks, thwarted attacks, and reported attacks,
-	resulting in the three sub-figures presented in Figure\ref{fig:other-cybercrime-incidents}.
+	resulting in the three sub-figures presented in Figure~\ref{fig:other-cybercrime-incidents}.
 
 	In sub-figure (a), the number of successful attacks closely aligns with the total number of attacks in most countries.
 	For instance, the United States recorded 7,189 successful attacks out of 7,236 total attacks,
@@ -77,13 +79,13 @@ but also allows for fitting the data against policy and population variables to 
 	\begin{figure}[htbp]
 		\centering
 		\subfloat[Successful Cybercrime Incidents]{
-			\includegraphics[width=0.8\linewidth]{../rsrc/distributions/Crime_Successful_distribution}
+			\includegraphics[width=1\linewidth]{../rsrc/distributions/Crime_Successful_distribution}
 		}\\
 		\subfloat[Mitigated Cybercrime Attempts]{
-			\includegraphics[width=0.4\linewidth]{../rsrc/distributions/Crime_NearMiss_distribution}
+			\includegraphics[width=0.45\linewidth]{../rsrc/distributions/Crime_NearMiss_distribution}
 		}\hfill
 		\subfloat[Reported Cybercrime Incidents]{
-			\includegraphics[width=0.4\linewidth]{../rsrc/distributions/Crime_Suspected_distribution}
+			\includegraphics[width=0.45\linewidth]{../rsrc/distributions/Crime_Suspected_distribution}
 		}\\
 		\caption{Other Cybercrime Incidents}\label{fig:other-cybercrime-incidents}
 	\end{figure}

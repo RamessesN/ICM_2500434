@@ -30,10 +30,14 @@ we aim to provide actionable insights for the development and refinement of cybe
         To identify the representative country for each cluster,
         we first calculate the average GCI for each cluster.
         The average GCI, denoted as \(\overline{GCI}\), is computed as follows:
-        \[ \overline{GCI} = \frac{\sum_{i=1}^{n} GCI_i}{n} \]
+        \begin{equation}
+            \overline{GCI} = \frac{\sum_{i=1}^{n} GCI_i}{n}\label{eq:4-1-1-1}
+        \end{equation}
         where \(n\) is the number of countries in the cluster.
         Next, we compute the absolute deviation of each country's GCI from the cluster average:
-        \[ \{ a|a= |GCI_i - \overline{GCI}| \} \]
+        \begin{equation}
+            \{ a|a= |GCI_i - \overline{GCI}| \}\label{eq:4-1-1-2}
+        \end{equation}
         where \(a\) is the approach to the average \( \overline{GCI} \).
         The country with the smallest deviation is considered the most representative of its cluster.
         After this initial selection, we further filter out countries with insufficient or incomplete legal and policy documentation.
@@ -201,7 +205,9 @@ we aim to provide actionable insights for the development and refinement of cybe
     but it will be effective for the network control in the next few years.
     Therefore, we do this by using a Poisson regression model and introducing a time lag effect.
     The model is described as:
-    \[ \log(\mathbb{E}[Crime_t]) = \beta_0 + \sum_{k=1}^{K} \beta_k Bill_{t-k} \]
+    \begin{equation}
+        \log(\mathbb{E}[Crime_t]) = \beta_0 + \sum_{k=1}^{K} \beta_k Bill_{t-k}\label{eq:4-5-1}
+    \end{equation}
     where
     \begin{itemize}
         \item \(\mathbb{E}\) is the expected crime number in the year \(t\),
