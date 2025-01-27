@@ -44,14 +44,20 @@ we aim to provide actionable insights for the development and refinement of cybe
     
         Through this process, we identify the following representative countries for each cluster with their references:
         \bigskip
-        \begin{center}
-            \begin{tabular}{ccccccccc}
-                \hline
-                \textbf{T1} &  & \textbf{T2} &  & \textbf{T3} &  & \textbf{T4} &  & \textbf{T5} \\
-                \hline
-                United States &  & Japan &  & China &  & Costa Rica &  & Namibia \\
-            \end{tabular}
-        \end{center}
+        \begin{table}
+            \centering
+            \caption{Representative Countries of Each Tie Based on GCI Division}
+            \label{tab:representative-countries-of-each-tie-based-on-gci-division}
+            \resizebox{0.6\linewidth}{!}{
+                \begin{tabular}{ccccc}
+                    \hline
+                    \textbf{T1} & \textbf{T2} & \textbf{T3} & \textbf{T4}  & \textbf{T5} \\
+                    \hline
+                    United States & Japan & China & Costa Rica & Namibia \\
+                    \hline
+                \end{tabular}
+            }
+        \end{table}
 
     \subsubsection*{Visualizing Policy Impact Over Time} %4.1.2
         With the selected representative countries,
@@ -75,7 +81,7 @@ we aim to provide actionable insights for the development and refinement of cybe
         helps identify patterns that warrant further investigation.
         It also serves as a foundation for more detailed analysis of specific policies, guiding future research directions.
     
-        \begin{figure}[htbp]
+        \begin{figure}[htb]
             \centering
             \subfloat[US\cite{us}]{
                 \includegraphics[width=0.45\linewidth]{../rsrc/policies/(T1)US_policy}
@@ -165,7 +171,7 @@ we aim to provide actionable insights for the development and refinement of cybe
         In contrast, other policies enacted during the same period do not appear to have had a significant impact
         on curbing the success rate of cybercrimes.
         This highlights the importance of centralized, technically-focused initiatives in mitigating the effectiveness of cyberattacks.
-        \begin{figure}[htbp]
+        \begin{figure}[htb]
             \centering
             \subfloat[US\cite{us}]{
                 \includegraphics[width=0.45\linewidth]{../rsrc/other_policies/US_policy_nearMiss}
@@ -186,7 +192,7 @@ we aim to provide actionable insights for the development and refinement of cybe
         in the United Kingdom have had a positive impact on increasing reporting rates.
         However, due to the limited amount of data, there is significant noise in the results.
         In reality, the majority of laws and policies do not seem to have a substantial effect on improving reporting rates.
-        \begin{figure}[htbp]
+        \begin{figure}[htb]
             \centering
             \subfloat[US\cite{us}]{
                 \includegraphics[width=0.45\linewidth]{../rsrc/other_policies/US_policy_suspected}
@@ -225,7 +231,7 @@ we aim to provide actionable insights for the development and refinement of cybe
     Because the Poisson regression analysis also needs to be based on a certain amount of data to ensure the accuracy of the conclusion,
     we choose a few countries that have suffered a large number of cyberattacks for analysis.
     Included: United States, United Kingdom, Canada, Japan, Costa Rica as Figure~\ref{fig:the-poisson-regression} shows.
-    \begin{figure}[htbp]
+    \begin{figure}[htb]
         \centering
         \subfloat[United States]{
             \includegraphics[width=0.45\linewidth]{../rsrc/policy_time/US_Analysis}
